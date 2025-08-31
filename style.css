@@ -1,0 +1,252 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== base ===== */
+:root{
+  --accent:#563DF5;
+  --accent-dark:#563DF5;
+  --muted:#6b7280;
+  --card-bg:#fff;
+  --radius:12px;
+  --max-width:980px;
+  --gap:18px;
+  --container-pad:20px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Tajawal', 'Roboto', system-ui, sans-serif;
+  background:#f6f7fb;
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* روابط الهيدر احترافية - خط سمبل */
+.nav-links a {
+  font-weight:400;           /* خط عادي */
+  font-size:16px;            /* حجم مناسب */
+  color:#fff;                /* اللون الأساسي */
+  text-decoration:none;      /* إزالة التحته خط */
+  margin-left:20px;          /* مسافة بين الروابط */
+  transition: color 0.3s, transform 0.2s; /* تأثير سلس عند Hover */
+}
+
+.nav-links a:hover {
+  color:var(--accent);       /* لون مميز عند المرور */
+  transform: translateY(-2px); /* حركة بسيطة للأناقة */
+}
+
+.hero-right img {
+  width:100%;
+  max-width:300px; /* حجم صغير */
+  height:auto;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  margin-top:16px; /* مسافة عن النص لو تحت */
+}
+
+/* على الموبايل: تصغير تلقائي ووضع الصورة تحت النص */
+@media(max-width:720px){
+  .hero-right img {
+    display:flex;
+    justify-content: center;
+    max-width:80%;
+    margin-top:16px;
+    
+  }
+}
+
+/* على الموبايل: نص + صورة فوق بعض */
+@media(max-width:720px){
+  .hero {
+    grid-template-columns:1fr;
+  }
+
+  .hero-right img {
+    margin-top:16px;
+  }
+}
+
+/* ===== topbar ===== */
+.topbar{
+  background:#0f1724;
+  color:#fff;
+  padding:12px var(--container-pad);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:42px;height:42px;object-fit:contain;border-radius:8px;background:linear-gradient(135deg,#fff,#eee)}
+.brand-text .arabic{font-weight:800;font-size:18px}
+.brand-text .latin{font-size:12px;color:#cbd5e1}
+
+/* why-line */
+.why-line{
+  max-width:var(--max-width);
+  margin:8px auto 0;
+  padding:6px var(--container-pad);
+  color:#f8fafc;
+  font-weight:600;
+  text-align:right;
+}
+
+/* ===== hero ===== */
+.hero{
+  max-width:var(--max-width);
+  margin:24px auto;
+  display:grid;
+  grid-template-columns: 1fr 160px;
+  gap:20px;
+  padding:0 var(--container-pad);
+  align-items:center;
+}
+
+.hero-text{text-align:right}
+.hero-title{
+  font-size:26px;
+  margin:0 0 10px;
+  color:#0b1220;
+  font-weight:800;
+}
+.hero-sub{margin:0 0 16px;color:var(--muted);max-width:620px}
+
+/* أزرار hero جنب بعض */
+.hero-actions {
+  display:flex;           /* صف أفقي */
+  flex-direction:row;     /* جنب بعض */
+  gap:12px;               /* مسافة بين الأزرار */
+  align-items:flex-start; /* مع بداية النص */
+  margin-top:16px;        /* مسافة بسيطة بعد الوصف */
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 8px 30px rgba(107,59,217,0.15);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.btn-outline{
+  padding:10px 16px;
+  border-radius:10px;
+  border:1px solid #e6e6ea;
+  color:#111827;
+  text-decoration:none;
+  background:transparent;
+  font-weight:700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-outline:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* search */
+.search-wrap{margin-top:14px;display:flex;gap:8px;justify-content:flex-end}
+.search-wrap input{
+  padding:10px 12px;border-radius:10px;border:1px solid #e6e9ef;width:220px;font-size:14px;
+}
+.search-btn{background:var(--accent-dark);color:#fff;border:none;padding:10px 12px;border-radius:8px}
+
+/* banner image right */
+.banner img{width:100%;height:120px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow)}
+@media(max-width:720px){
+  .hero{grid-template-columns:1fr;gap:14px}
+  .banner img{height:180px}
+  .search-wrap input{width:100%}
+  .hero-actions{align-items:center} /* الأزرار في النص على الموبايل */
+}
+
+/* ===== about ===== */
+.about{max-width:var(--max-width);margin:18px auto;padding:12px var(--container-pad);text-align:right}
+.about h2{margin-bottom:10px;color:var(--accent-dark)}
+
+/* ===== features / cards ===== */
+.features{background:transparent;padding:8px var(--container-pad)}
+.features h2{text-align:right;max-width:var(--max-width);margin:10px auto 18px;color:var(--accent-dark)}
+.cards{
+  max-width:var(--max-width);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  padding:0 var(--container-pad) var(--container-pad);
+}
+.card{
+  background:var(--card-bg);
+  padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:right;
+}
+.card h3{margin:0 0 8px;color:var(--accent-dark);font-size:16px}
+.card p{color:var(--muted);font-size:14px;margin-bottom:8px}
+.card ul{margin:8px 0 0 0;padding-right:18px;color:var(--muted);font-size:13px;list-style:disc}
+
+/* ===== courses ===== */
+.courses{max-width:var(--max-width);margin:10px auto;padding:10px var(--container-pad)}
+.courses h2{text-align:right;margin-bottom:12px;color:var(--accent-dark)}
+.course-list{display:grid;gap:12px}
+.course-card{display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:10px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+.course-card img{width:110px;height:70px;border-radius:8px;object-fit:cover}
+.course-info{flex:1;text-align:right}
+.course-title{font-weight:700;margin-bottom:6px}
+.meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+.price{font-weight:800;color:var(--accent-dark)}
+
+/* final CTA */
+.final-cta{max-width:var(--max-width);margin:20px auto;padding:18px var(--container-pad);text-align:center;background:linear-gradient(90deg,var(--accent),var(--accent-dark));border-radius:12px;color:#fff}
+.final-cta a{display:inline-block;margin-top:12px;background:#fff;color:var(--accent);padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+
+/* footer */
+.site-footer{background:#0b1220;color:#cbd5e1;padding:20px 0;margin-top:30px}
+.footer-inner{max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 var(--container-pad)}
+.footer-socials a{color:#cbd5e1;margin-left:14px;font-size:20px}
+.footer-inner .logo-small{font-weight:800}
+
+/* responsive tweaks */
+@media(max-width:720px){
+  .footer-inner{flex-direction:column;gap:10px}
+  .brand-text .arabic{font-size:16px}
+  .banner img{height:160px}
+}
+/* ===== تعديلات الموبايل ===== */
+@media (max-width:720px) {
+  /* إخفاء اللوجو */
+  .brand-logo {
+    display:none;
+  }
+
+  /* تصغير حجم الخط في روابط الهيدر */
+  .nav-links a {
+    font-size:14px; /* أصغر من 16px */
+  }
+
+  /* لو تحب يمكن تقليل المسافة بين الروابط */
+  .nav-links a {
+    margin-left:12px;
+  }
+}
